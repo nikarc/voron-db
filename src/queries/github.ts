@@ -24,6 +24,9 @@ export const MOD_LIST = gql`
                       entries {
                         ${ENTRY_FIELDS}
                         object {
+                          ... on Blob {
+                            text
+                          }
                           ... on Tree {
                             entries {
                               ${ENTRY_FIELDS}

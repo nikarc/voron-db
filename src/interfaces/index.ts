@@ -6,7 +6,8 @@ export interface SimpleModNode {
 export interface ModNode extends SimpleModNode {
   extension: string;
   object?: {
-    entries: ModNode[];
+    entries?: ModNode[];
+    text?: string;
   };
 }
 
@@ -24,6 +25,7 @@ export interface ModFlatMapNode {
   name: string;
   createdBy: string;
   downloadLink: string;
+  description?: string;
   images?: Array<{
     path?: string;
     name?: string;
