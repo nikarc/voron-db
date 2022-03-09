@@ -1,7 +1,21 @@
-export const stripHTML = (data: string): string => {
-  const htmlRegex = /(<([^>]+)>)/gi;
-  const imgReg =
-    /(!|)\[.*\]\(((https?:\/\/|.\/)(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))\)/gi;
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import rehypeFormat from "rehype-format";
+import rehypeStringify from "rehype-stringify";
+import remarkRehype from "remark-rehype";
 
-  return data.replace(htmlRegex, "").replace(imgReg, "").replace(/\\n+/g, " ");
+export const stripHTML = async (data: string): Promise<string> => {
+  const formatted = await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypeFormat)
+    .use(rehypeStringify)
+    .process(data);
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(String(formatted), "text/html");
+
+  return doc.body.textContent?.trim().length
+    ? doc.body.textContent
+    : "No README";
 };

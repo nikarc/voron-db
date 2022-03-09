@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { flatMapData } from "helpers";
 import { ModListResponse } from "../interfaces";
 import { MOD_LIST } from "queries/github";
-import { ModListWrap } from "./mod-list.styles";
+import { ModListWrap, ModUnorderedList } from "./mod-list.styles";
 import { ModCard } from "./mod-card/mod-card";
 import { useEffect } from "react";
 
@@ -22,12 +22,12 @@ export const ModList = () => {
     <ModListWrap>
       {loading && <p>Loading...</p>}
       {!loading && (
-        <ul>
+        <ModUnorderedList>
           {data &&
             flatMapData(data).mods.map((mod, index: number) => (
               <ModCard key={index} mod={mod} />
             ))}
-        </ul>
+        </ModUnorderedList>
       )}
     </ModListWrap>
   );

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Wrap = styled.li``;
+export const Wrap = styled.li`
+  width: 100%;
+`;
 
 export const ModTitle = styled.h4`
   text-transform: capitalize;

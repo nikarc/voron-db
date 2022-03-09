@@ -16,7 +16,15 @@
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.3"
+    "rehype-document": "^6.0.1",
+    "rehype-format": "^4.0.1",
+    "rehype-stringify": "^9.0.3",
+    "remark": "^14.0.2",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "strip-markdown": "^5.0.0",
+    "styled-components": "^5.3.3",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "@types/node": "17.0.21",
