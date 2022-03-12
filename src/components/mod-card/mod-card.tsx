@@ -1,8 +1,16 @@
+import Image from "components/image";
 import { deslugify } from "helpers";
 import { stripHTML } from "helpers/strip-html";
 import { ModFlatMapNode } from "interfaces";
 import { useEffect, useState } from "react";
-import { ModDesc, ModTitle, Wrap } from "./mod-card.styles";
+import {
+  ModByLine,
+  ModDesc,
+  ModImageWrap,
+  ModTextContent,
+  ModTitle,
+  Wrap,
+} from "./mod-card.styles";
 
 interface Props {
   mod: ModFlatMapNode;
@@ -24,8 +32,22 @@ export const ModCard: React.FC<Props> = ({ mod }) => {
 
   return (
     <Wrap>
-      <ModTitle>{deslugify(mod.name)}</ModTitle>
-      {description && <ModDesc>{description}</ModDesc>}
+      <ModImageWrap>
+        {mod.images?.[0] && (
+          <Image src={mod.images[0].path} alt={mod.images[0].name} />
+        )}
+      </ModImageWrap>
+      <ModTextContent>
+        <ModTitle>{deslugify(mod.name)}</ModTitle>
+        {description && <ModDesc>{description}</ModDesc>}
+        <ModByLine
+          href={`https://github.com/${mod.createdBy}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <small>By: {mod.createdBy}</small>
+        </ModByLine>
+      </ModTextContent>
     </Wrap>
   );
 };

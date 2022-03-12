@@ -2,15 +2,35 @@ import styled, { css } from "styled-components";
 
 export const Wrap = styled.li`
   width: 100%;
-  padding: 0 12px 12px 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   ${({ theme }) => css`
     border: 2px solid ${theme.colors.fg};
     border-radius: ${theme.sizes.borderRadius}px;
+  `}
+`;
 
+export const ModTextContent = styled.div`
+  padding: 0 12px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+
+  ${({ theme }) => css`
     ${theme.media.tablet} {
       padding: 0 24px 24px 24px;
     }
+  `}
+`;
+
+export const ModImageWrap = styled.div`
+  position: relative;
+  width: 100%;
+  height: 150px;
+  ${({ theme }) => css`
+    background-color: ${theme.colors.gray};
   `}
 `;
 
@@ -23,4 +43,13 @@ export const ModDesc = styled.p`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+`;
+
+export const ModByLine = styled.a`
+  margin-top: auto;
+  display: block;
+
+  ${({ theme }) => css`
+    color: ${theme.colors.gray};
+  `}
 `;
