@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 import { AppTheme } from "theme";
 
 interface Props {
@@ -35,6 +35,24 @@ const GlobalStyle = createGlobalStyle<Props>`
   ul,
   li {
     list-style: none;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  input {
+    outline: none;
+    background-color: transparent;
+    padding: 8px 12px;
+    font-family: monospace;
+
+    ${({ theme }) => css`
+      color: ${theme.colors.fg};
+      border: 1px solid ${theme.colors.fg};
+      border-radius: ${theme.sizes.borderRadius / 2}px;
+    `}
   }
 `;
 

@@ -32,22 +32,25 @@ export const ModCard: React.FC<Props> = ({ mod }) => {
 
   return (
     <Wrap>
-      <ModImageWrap>
-        {mod.images?.[0] && (
-          <Image src={mod.images[0].path} alt={mod.images[0].name} />
-        )}
-      </ModImageWrap>
-      <ModTextContent>
-        <ModTitle>{deslugify(mod.name)}</ModTitle>
-        {description && <ModDesc>{description}</ModDesc>}
-        <ModByLine
-          href={`https://github.com/${mod.createdBy}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <small>By: {mod.createdBy}</small>
-        </ModByLine>
-      </ModTextContent>
+      <a href={mod.path} target="_blank" rel="noopener noreferrer">
+        <ModImageWrap>
+          {mod.images?.[0] && (
+            <Image src={mod.images[0].path} alt={mod.images[0].name} />
+          )}
+        </ModImageWrap>
+        <ModTextContent>
+          <ModTitle>{deslugify(mod.name)}</ModTitle>
+          {description && <ModDesc>{description}</ModDesc>}
+        </ModTextContent>
+      </a>
+      <ModByLine
+        onClick={(e) => e.stopPropagation()}
+        href={`https://github.com/${mod.createdBy}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <small>By: {mod.createdBy}</small>
+      </ModByLine>
     </Wrap>
   );
 };

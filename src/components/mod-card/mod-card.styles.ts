@@ -7,20 +7,20 @@ export const Wrap = styled.li`
   flex-direction: column;
 
   ${({ theme }) => css`
-    border: 2px solid ${theme.colors.fg};
+    border: 2px solid ${theme.colors.gray};
     border-radius: ${theme.sizes.borderRadius}px;
   `}
 `;
 
 export const ModTextContent = styled.div`
-  padding: 0 12px 12px 12px;
+  padding: 0 12px;
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
 
   ${({ theme }) => css`
     ${theme.media.tablet} {
-      padding: 0 24px 24px 24px;
+      padding: 0 24px;
     }
   `}
 `;
@@ -48,8 +48,13 @@ export const ModDesc = styled.p`
 export const ModByLine = styled.a`
   margin-top: auto;
   display: block;
+  padding: 0 12px 12px 12px;
 
   ${({ theme }) => css`
     color: ${theme.colors.gray};
+
+    ${theme.media.tablet} {
+      padding: 0 24px 24px 24px;
+    }
   `}
 `;
