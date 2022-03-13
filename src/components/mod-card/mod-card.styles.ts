@@ -28,7 +28,7 @@ export const ModTextContent = styled.div`
 export const ModImageWrap = styled.div`
   position: relative;
   width: 100%;
-  height: 150px;
+  aspect-ratio: 16 / 9;
   ${({ theme }) => css`
     background-color: ${theme.colors.gray};
   `}

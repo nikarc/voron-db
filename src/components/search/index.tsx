@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { SearchForm, SearchInput } from "./search.styles";
+import {
+  SearchForm,
+  SearchFormGroup,
+  SearchInput,
+  SearchInputLabel,
+} from "./search.styles";
 
 interface Props {
   onSearch?(term: string | null): void;
@@ -26,7 +31,10 @@ const Search: React.FC<Props> = ({ onSearch }) => {
 
   return (
     <SearchForm>
-      <SearchInput type="text" value={searchTerm} onChange={onChange} />
+      <SearchFormGroup>
+        <SearchInputLabel>Search</SearchInputLabel>
+        <SearchInput type="text" value={searchTerm} onChange={onChange} />
+      </SearchFormGroup>
     </SearchForm>
   );
 };

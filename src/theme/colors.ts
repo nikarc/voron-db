@@ -1,6 +1,7 @@
 export const colors = {
-  fg: "#fafafa",
-  bg: "#1b1e1f",
+  fg: "#FDFFFC",
+  bg: "#011627",
   gray: "#535353",
-  red: "#ff2200",
+  red: "#FF0022",
+  secondary: "#41EAD4",
 };

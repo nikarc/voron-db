@@ -15,8 +15,10 @@ const GlobalStyle = createGlobalStyle<Props>`
   }
 
   body {
-    background-color: #1b1e1f;
-    color: #fafafa;
+    ${({ theme }) => css`
+      background-color: ${theme.colors.bg};
+      color: ${theme.colors.fg};
+    `}
   }
 
   a {
