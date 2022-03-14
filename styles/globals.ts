@@ -1,3 +1,4 @@
+import { IconSVG } from "components/icons/icon.styles";
 import { createGlobalStyle, css } from "styled-components";
 import { AppTheme } from "theme";
 
@@ -25,8 +26,21 @@ const GlobalStyle = createGlobalStyle<Props>`
     color: inherit;
     text-decoration: none;
 
+    &,
+    ${IconSVG} path {
+      transition: all ${({ theme }) => theme.timing.normal}s;
+    }
+
     :hover {
-      color: ${({ theme }) => theme.colors.red};
+      ${({ theme }) => css`
+        color: ${theme.colors.secondary};
+
+        ${IconSVG} {
+          path {
+            fill: ${theme.colors.secondary};
+          }
+        }
+      `}
     }
   }
 

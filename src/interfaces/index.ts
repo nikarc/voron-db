@@ -25,6 +25,7 @@ export interface ModFlatMapNode {
   name: string;
   createdBy: string;
   downloadLink: string;
+  externalUri: string;
   path: string;
   description?: string;
   images?: Array<{

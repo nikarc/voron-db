@@ -5,10 +5,16 @@ export const Wrap = styled.li`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 
   ${({ theme }) => css`
-    border: 2px solid ${theme.colors.gray};
+    border: 2px solid ${theme.colors.grayLight};
     border-radius: ${theme.sizes.borderRadius}px;
+    transition: border-color ${theme.timing.normal}s;
+
+    :hover {
+      border-color: ${theme.colors.secondary};
+    }
   `}
 `;
 
@@ -30,7 +36,7 @@ export const ModImageWrap = styled.div`
   width: 100%;
   aspect-ratio: 16 / 9;
   ${({ theme }) => css`
-    background-color: ${theme.colors.gray};
+    background-color: ${theme.colors.grayLight};
   `}
 `;
 
@@ -45,16 +51,20 @@ export const ModDesc = styled.p`
   overflow: hidden;
 `;
 
-export const ModByLine = styled.a`
+export const ModCardFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-top: auto;
-  display: block;
+  align-items: center;
   padding: 0 12px 12px 12px;
 
   ${({ theme }) => css`
-    color: ${theme.colors.gray};
+    color: ${theme.colors.grayLight};
 
     ${theme.media.tablet} {
       padding: 0 24px 24px 24px;
     }
   `}
 `;
+
+export const ModByLine = styled.a``;

@@ -9,7 +9,8 @@ export const flatMapData = (data: ModListResponse): ModsFlatMap => {
         .map((mod) => ({
           name: mod.name,
           createdBy: repoEntry.name,
-          path: `https://github.com/${data.repository.resourcePath}/tree/master/${mod.path}`,
+          externalUri: `https://github.com${data.repository.resourcePath}/tree/master/${mod.path}`,
+          path: mod.path,
           description: mod.object?.entries?.find((e) => e.name === "README.md")
             ?.object?.text,
           downloadLink: `https://raw.githubusercontent.com/${data.repository.name}/${data.repository.resourcePath}`,
